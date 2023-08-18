@@ -29,6 +29,7 @@ public class Task1BubbleSort {
         }
 
         return numbers;
+
     }
 
     public static void selfCheck() {
