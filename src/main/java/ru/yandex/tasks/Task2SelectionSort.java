@@ -12,7 +12,27 @@ public class Task2SelectionSort {
          * Выход: отсортированный (сортировкой выбором!) numbers
          */
         // (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ WRITE CODE HERE (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧
-        return null;
+
+        int left = 0;
+
+        while (left < numbers.size()) {
+            int min = numbers.get(left);
+            int minIdx = 0;
+            for (int i = left; i < numbers.size(); i++) {
+                if (numbers.get(i) < min) {
+                    min = numbers.get(i);
+                    minIdx = i;
+                }
+            }
+            if (minIdx > 0) {
+                int tmp = numbers.get(left);
+                numbers.set(left, min);
+                numbers.set(minIdx, tmp);
+            }
+            left++;
+        }
+
+        return numbers;
     }
 
     public static void selfCheck() {
@@ -20,5 +40,9 @@ public class Task2SelectionSort {
         ArrayList<Integer> output = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
 
         assert output.equals(sort(input));
+    }
+
+    public static void main(String[] args) {
+        selfCheck();
     }
 }
